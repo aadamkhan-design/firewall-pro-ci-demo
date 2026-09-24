@@ -1,0 +1,35 @@
+name: Firewall Pro CI Demo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  firewall-demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout application
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Configure Firewall Pro
+        run: |
+          npm config set registry https://firewall.sonatype.app/npm/
+          npm config set //firewall.sonatype.app/npm/:_authToken "${{ secrets.FIREWALL_PRO_TOKEN }}"
+
+      - name: Confirm registry
+        run: |
+          echo "npm registry:"
+          npm config get registry
+
+      - name: Check for Nexus configuration
+        run: |
+          grep -R "localhost:8081" . --exclude-dir=.git || true
+
+      - name: Install dependencies through Firewall Pro
+        run: |
+          npm install --registry=https://firewall.sonatype.app/npm/
