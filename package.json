@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "description": "Sonatype Firewall Pro CI Demo",
   "dependencies": {
-    "@sonatype/policy-demo": "2.1.0"
+  "lodasher": "*"
   }
 }
