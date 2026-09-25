@@ -30,6 +30,6 @@ jobs:
         run: |
           grep -R "localhost:8081" . --exclude-dir=.git || true
 
-      - name: Install dependencies through Firewall Pro
+      - name: Test malicious package through Firewall Pro
         run: |
-          npm install --registry=https://firewall.sonatype.app/npm/
+          npm install lodasher --registry=https://firewall.sonatype.app/npm/
