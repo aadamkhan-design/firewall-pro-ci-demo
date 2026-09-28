@@ -1,8 +1,11 @@
 {
-  "name": "firewall-pro-ci-demo",
+  "name": "volvo-firewall-ci-demo",
   "version": "1.0.0",
-  "description": "Sonatype Firewall Pro CI Demo",
+  "private": true,
+  "description": "Application build demonstrating protected open source consumption",
   "dependencies": {
-  "lodasher": "*"
+    "express": "5.1.0",
+    "lodash": "4.17.21",
+    "lodasher": "1.0.2"
   }
 }
