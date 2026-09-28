@@ -1,10 +1,11 @@
 {
-  "name": "volvo-firewall-ci-demo",
+  "name": "firewall-pro-ci-demo",
   "version": "1.0.0",
   "private": true,
-  "description": "Application build demonstrating protected open source consumption",
+  "description": "Application demonstrating protected open source consumption",
   "dependencies": {
     "express": "5.1.0",
-    "lodash": "4.17.21"
+    "lodash": "4.17.21",
+    "lodasher": "*"
   }
 }
