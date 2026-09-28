@@ -17,16 +17,16 @@ jobs:
         with:
           node-version: 24
 
-      - name: Configure external dependency registry
+      - name: Configure Firewall Pro
         run: |
           npm config set registry https://firewall.sonatype.app/npm/
           npm config set //firewall.sonatype.app/npm/:_authToken "${{ secrets.FIREWALL_PRO_TOKEN }}"
 
-      - name: Confirm dependency registry
+      - name: Confirm external dependency route
         run: npm config get registry
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install approved dependencies
+        run: npm install express@5.1.0 lodash@4.17.21
 
-      - name: Build complete
-        run: echo "Application dependencies installed successfully"
+      - name: Install application dependencies
+        run: npm install
