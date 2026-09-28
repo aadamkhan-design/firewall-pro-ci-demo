@@ -6,6 +6,6 @@
   "dependencies": {
     "express": "5.1.0",
     "lodash": "4.17.21",
-    "lodasher": "1.0.2"
+    "lodasher": "*"
   }
 }
