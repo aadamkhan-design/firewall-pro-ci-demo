@@ -28,5 +28,12 @@ jobs:
       - name: Install application dependencies
         run: npm install
 
+      - name: Security test 1
+        continue-on-error: true
+        run: npm install lodasher
+
+      - name: Security test 2
+        run: npm install @sonatype/policy-demo@2.1.0
+
       - name: Build complete
         run: echo "Application build completed successfully"
