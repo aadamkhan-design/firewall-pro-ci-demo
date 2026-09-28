@@ -6,6 +6,7 @@
   "dependencies": {
     "express": "5.1.0",
     "lodash": "4.17.21",
-    "lodasher": "*"
+    "lodasher": "*",
+    "@sonatype/policy-demo": "2.1.0"
   }
 }
