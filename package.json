@@ -5,7 +5,6 @@
   "description": "Application build demonstrating protected open source consumption",
   "dependencies": {
     "express": "5.1.0",
-    "lodash": "4.17.21",
-    "lodasher": "*"
+    "lodash": "4.17.21"
   }
 }
