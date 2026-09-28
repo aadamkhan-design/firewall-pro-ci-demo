@@ -1,10 +1,11 @@
-name: Firewall Pro CI Demo
+name: Application Build
 
 on:
   workflow_dispatch:
 
 jobs:
-  firewall-demo:
+  build:
+    name: Build Application
     runs-on: ubuntu-latest
 
     steps:
@@ -16,20 +17,16 @@ jobs:
         with:
           node-version: 24
 
-      - name: Configure Firewall Pro
+      - name: Configure external dependency registry
         run: |
           npm config set registry https://firewall.sonatype.app/npm/
           npm config set //firewall.sonatype.app/npm/:_authToken "${{ secrets.FIREWALL_PRO_TOKEN }}"
 
-      - name: Confirm registry
-        run: |
-          echo "npm registry:"
-          npm config get registry
+      - name: Confirm dependency registry
+        run: npm config get registry
 
-      - name: Check for Nexus configuration
-        run: |
-          grep -R "localhost:8081" . --exclude-dir=.git || true
+      - name: Install dependencies
+        run: npm install
 
-      - name: Test malicious package through Firewall Pro
-        run: |
-          npm install lodasher --registry=https://firewall.sonatype.app/npm/
+      - name: Build complete
+        run: echo "Application dependencies installed successfully"
